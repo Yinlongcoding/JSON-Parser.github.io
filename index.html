@@ -6,26 +6,53 @@
 	<style>
 		body {
 			font-size: 20px;
+			display: flex;
+			justify-content: center;
+		}
+		.json-parse {
+			width: 40%;
 		}
 		textarea {
 			font-size: 1em;
-			/*outline: none;*/
+			border: 2px solid #b0b0b0;
 		}
-		#btn {
+		.btn {
 			outline: none;
-			height: 50px;
+			height: 2.5rem;
 			font-size: inherit;
-			border-radius: 10px;
+			border-radius: 0.5rem;
+			border: none;
+			background-color: rgba(0, 0, 0, 0.06);
+		}
+		.drag {
+			width: 40%;
+		}
+		.drag #drag-box {
+			height: 15rem;
+			width: 15rem;
+			background-color: #ace;
+			margin-bottom: 5px;
 		}
 	</style>
 </head>
 <body>
 	<div class="json-parse">
-		<textarea name="json" id="JSON_area" cols="100" rows="10" placeholder="请输入JSON格式字符串，然后点击按钮，在控制台查看结果！">
-{"results":[{"searchtext":"how"},{"searchtext":"how about...?"},{"searchtext":"how about that?"},{"searchtext":"how are things?"},{"searchtext":"how are things (with you)?"},{"searchtext":"how are you?"},{"searchtext":"how are you fixed for sth?"},{"searchtext":"how are you keeping?"},{"searchtext":"how are you placed for...?"},{"searchtext":"how come?"}]}</textarea><hr>
-		<button id="btn">Click to parse data</button>
+		<textarea name="json" id="JSON_area" cols="40" rows="10" placeholder="请输入JSON格式字符串，然后点击按钮，在控制台查看结果！">
+{"results":[{"searchtext":"how"},{"searchtext":"how about...?"},{"searchtext":"how about that?"},{"searchtext":"how are things?"},{"searchtext":"how are things (with you)?"},{"searchtext":"how are you?"},{"searchtext":"how are you fixed for sth?"},{"searchtext":"how are you keeping?"},{"searchtext":"how are you placed for...?"},{"searchtext":"how come?"}]}</textarea><br>	
+		<button id="btn" class="btn">Click to parse data</button>
 		<p></p>
+	</div>
+	<div class="drag">
+		<div id="drag-box"></div>
+		<button id="drag-btn" class="btn">click to drag the box</button>
 	</div>
 </body>
 <script src="JSON_parser.js"></script>
+<script src="drag.js"></script>
+<script>
+var dragBtn = document.querySelector('#drag-btn')
+dragBtn.addEventListener('click', function () {
+	new Drag('drag-box')
+})
+</script>
 </html>
