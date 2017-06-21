@@ -3,7 +3,7 @@ var pText = document.querySelector('p')
 
 parseBtn.addEventListener('click', function(){
     var JsonString = document.querySelector('#JSON_area').value
-    pText.innerHTML = "解析结果已在控制台输出！"
+    pText.innerHTML = "The result is in Dev tools"
     console.log(jsonpars(JsonString))
 })
 
